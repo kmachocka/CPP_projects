@@ -1,0 +1,112 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void score(int playerScore, int computerScore) {
+	cout << "\n***** Current score *****" << endl;
+	cout << "Computer score: " << computerScore << endl;
+	cout << "Player score: " << playerScore << endl;
+}
+
+
+int main() {
+
+	srand(time(0));
+	int playerScore = 0;
+	int computerScore = 0;
+	int chose;
+	int round = 0;
+	int y = 1 + rand() % 3;
+
+	cout << "Let's play rock, paper, scissors" << endl;
+	while (!((playerScore >= 3 && computerScore <= 2) || (computerScore >= 3 && playerScore <= 2) ||
+	         (abs(playerScore - computerScore) == 2 && (playerScore >= 3 || computerScore >= 3)))) {
+		round++;
+		cout << "\nRound " << round;
+
+		cout << "\nComputer has already made its choice. What do you pick?" << endl;
+
+		cout << "\n1. Rock " << endl;
+		cout << "2. Paper" << endl;
+		cout << "3. Scissors\n" << endl;
+		cin >> chose;
+
+		switch (chose) {
+
+		case 1:
+
+			if (y == 1) {
+				playerScore++;
+				computerScore++;
+				cout << "It's a tie! Computer chose rock too! Point for both." << endl;
+
+			}
+
+			if (y == 2) {
+				computerScore++;
+				cout << "Computer wins the round by chosing paper. One point for Computer." << endl;
+
+			}
+
+			if (y == 3) {
+				playerScore++;
+				cout << "Good job! Computer chose scissors. One point for you!" << endl;
+			}
+			break;
+
+		case 2:
+
+			if (y == 1) {
+				playerScore++;
+				cout << "Good job! Computer chose rock. One point for you!" << endl;
+			}
+
+			if (y == 2) {
+				playerScore++;
+				computerScore++;
+				cout << "It's a tie! Computer chose paper too! Point for both." << endl;
+			}
+
+			if (y == 3) {
+				computerScore++;
+				cout << "Computer wins the round by chosing scissors. One point for Computer." << endl;
+			}
+			break;
+
+		case 3:
+
+			if (y == 1) {
+				computerScore++;
+				cout << "Computer wins the round by chosing rock. One point for Computer." << endl;
+			}
+
+			if (y == 2) {
+				playerScore++;
+				cout << "Good job! Computer chose paper. One point for you!" << endl;
+			}
+
+			if (y == 3) {
+				playerScore++;
+				computerScore++;
+				cout << "It's a tie! Computer chose scissors too! Point for both." << endl;
+			}
+			break;
+		}
+		score(playerScore, computerScore);
+
+		y = 1 + rand() % 3;
+
+	}
+
+	if ((abs(playerScore - computerScore) > 2 && playerScore >= 3) || (playerScore == 3 && playerScore > computerScore)) {
+		cout << "\nCongratulations! You won! :)" << endl;
+	}
+	if ((abs(playerScore - computerScore) > 2 && computerScore >= 3) || (computerScore == 3 && playerScore < computerScore)) {
+		cout << "\nSorry! Computer won! :(" << endl;
+	}
+
+}
+
+
