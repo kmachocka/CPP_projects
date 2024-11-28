@@ -41,19 +41,19 @@ int main() {
 			if (y == 1) {
 				playerScore++;
 				computerScore++;
-				cout << "It's a tie! Computer chose rock too! Point for both." << endl;
+				cout << "\nIt's a tie! Computer chose rock too! Point for both." << endl;
 
 			}
 
 			if (y == 2) {
 				computerScore++;
-				cout << "Computer wins the round by chosing paper. One point for Computer." << endl;
+				cout << "\nComputer wins the round by chosing paper. One point for Computer." << endl;
 
 			}
 
 			if (y == 3) {
 				playerScore++;
-				cout << "Good job! Computer chose scissors. One point for you!" << endl;
+				cout << "\nGood job! Computer chose scissors. One point for you!" << endl;
 			}
 			break;
 
@@ -61,18 +61,18 @@ int main() {
 
 			if (y == 1) {
 				playerScore++;
-				cout << "Good job! Computer chose rock. One point for you!" << endl;
+				cout << "\nGood job! Computer chose rock. One point for you!" << endl;
 			}
 
 			if (y == 2) {
 				playerScore++;
 				computerScore++;
-				cout << "It's a tie! Computer chose paper too! Point for both." << endl;
+				cout << "\nIt's a tie! Computer chose paper too! Point for both." << endl;
 			}
 
 			if (y == 3) {
 				computerScore++;
-				cout << "Computer wins the round by chosing scissors. One point for Computer." << endl;
+				cout << "\nComputer wins the round by chosing scissors. One point for Computer." << endl;
 			}
 			break;
 
@@ -80,18 +80,18 @@ int main() {
 
 			if (y == 1) {
 				computerScore++;
-				cout << "Computer wins the round by chosing rock. One point for Computer." << endl;
+				cout << "\nComputer wins the round by chosing rock. One point for Computer." << endl;
 			}
 
 			if (y == 2) {
 				playerScore++;
-				cout << "Good job! Computer chose paper. One point for you!" << endl;
+				cout << "\nGood job! Computer chose paper. One point for you!" << endl;
 			}
 
 			if (y == 3) {
 				playerScore++;
 				computerScore++;
-				cout << "It's a tie! Computer chose scissors too! Point for both." << endl;
+				cout << "\nIt's a tie! Computer chose scissors too! Point for both." << endl;
 			}
 			break;
 		}
