@@ -8,6 +8,7 @@ void score(int playerScore, int computerScore) {
 	cout << "\n***** Current score *****" << endl;
 	cout << "Computer score: " << computerScore << endl;
 	cout << "Player score: " << playerScore << endl;
+	cout << "===============================================================" << endl;
 }
 
 
