@@ -19,6 +19,24 @@ cout << "The mean equals: " << mean << endl;
 
 
 
+/* 
+int sortingArray(int N, int student[]){
+    int min = 0;
+    int max = 1;
+
+    for (int i = 0; i < N; i++){
+
+        for (int j = 0; j < N; j++){
+
+            if (student[j] > min && student[j] < max)
+            cout << "STUDENT NR " << j << ": " << student[j] << endl;
+                    }
+            min++;
+            max++;
+        }
+    }
+
+*/
 
 
 
