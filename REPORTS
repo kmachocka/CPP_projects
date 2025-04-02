@@ -14,9 +14,10 @@ double countMean(int N, int student[]){
     }
 mean = sum / N;
 cout << "The mean equals: " << mean << endl;
+cout << "============================================= " << endl;
+
  return mean;
 }
-
 
 
 void sortAndPrintStudents(int student[], int N) {
@@ -32,19 +33,95 @@ void sortAndPrintStudents(int student[], int N) {
             }
         }
     }
-    
+
     if (N % 2 == 0){
         int upperMiddle = sorted[(N/2)-1];
         int lowerMiddle = sorted[(N/2)];
         double mediana = static_cast<double>((upperMiddle + lowerMiddle) / 2);
-        cout << "Mediana equals: " << mediana << endl;
+        cout << "Mediana equals: \n" << mediana << endl;
     }
-    
+
     else {
         int mediana = sorted[(N/2)];
-        cout << "Mediana equals: " << mediana << endl;
-    } 
+        cout << "Mediana equals: \n" << mediana << endl;
+    }
 }
+
+
+void countGrades(int N, int student[]){
+
+    int grades[11] = {0};
+    for (int i = 0; i < N; i++){
+        grades[student[i]]++; // Zwiększamy licznik dla danej oceny
+    }
+
+    for (int i = 0; i <= 10; i++) {
+        if (grades[i] >= 0) {
+            cout << "Grade " << i << " was received " << grades[i] << " times." << endl;
+        }
+
+    }
+}
+
+void highScore(int N, int student[]) {
+    int grades[11] = {0};
+
+    // Zlicz wystąpienia ocen
+    for (int i = 0; i < N; i++) {
+        grades[student[i]]++;
+    }
+
+    // Znajdź najczęstszą ocenę
+    int max_count = 0;
+    int most_common_grades[11] = {0};
+    int most_common_count = 0;
+
+    for (int i = 0; i <= 10; i++) {
+        if (grades[i] > 0) {
+            if (grades[i] > max_count) {
+                max_count = grades[i];
+                most_common_count = 0;
+                most_common_grades[most_common_count++] = i;
+            } else if (grades[i] == max_count) {
+                most_common_grades[most_common_count++] = i;
+            }
+        }
+    }
+
+    // Wyświetl wyniki
+    if (most_common_count > 0) {
+        cout << "\nMost common grade(s): ";
+
+        for (int i = 0; i < most_common_count; i++) {
+            cout << most_common_grades[i] << "; ";
+        }
+        cout << "(given " << max_count << " times)\n";
+    } else {
+        cout << "No grades to analyze.\n";
+    }
+}
+
+void drawHistogram(int N, int student[]) {
+    int grades[11] = {0}; // Tablica do zliczania wystąpień ocen
+
+    // Zliczanie wystąpień ocen
+    for (int i = 0; i < N; i++) {
+        grades[student[i]]++;
+    }
+
+    // Rysowanie histogramu
+    cout << "\nHistogram of grades:\n";
+    for (int i = 0; i <= 10; i++) {
+        cout << "Grade " << i << ": ";
+        for (int j = 0; j < grades[i]; j++) {
+            cout << "*"; // Dodaj gwiazdkę dla każdej wystąpienia
+        }
+        cout << " \n"; // Wypisz liczbę wystąpień
+    }
+}
+
+
+
 
 
 
@@ -57,7 +134,8 @@ int N;
 cout << "Please, enter the number of students " << endl;
 cin >> N;
 int student[N];
-cout << "Please find below the grades: " << endl;
+cout << "============================================= " << endl;
+cout << "Please find the grades below: " << endl;
 for (int i = 0; i < N; i++){
     int grade = rand() % 11;
     student[i] = grade;
@@ -65,4 +143,12 @@ for (int i = 0; i < N; i++){
 }
 
 countMean(N, student);
+cout << "\nBelow you will find sorted grades." << endl;
+sortAndPrintStudents(student, N);
+cout << "============================================= " << endl;
+countGrades(N, student);
+highScore(N, student);
+cout << "============================================= " << endl;
+cout << "See the results below: " << endl;
+drawHistogram(N, student);
 }
